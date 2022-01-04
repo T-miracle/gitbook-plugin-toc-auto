@@ -37,7 +37,7 @@
 }
 
 .article-box .article-title a {
-  font-size: 1.6em;
+  font-size: 16px;
   color: #111111;
   text-decoration: unset;
 }
@@ -48,7 +48,7 @@
 
 .article-box .article-createtime {
   color: #b3b3b3;
-  font-size: 0.6em;
+  font-size: 13px;
 }
 
 .article-box .article-content {
