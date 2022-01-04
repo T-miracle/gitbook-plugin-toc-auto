@@ -1,7 +1,7 @@
 {
   "name": "gitbook-plugin-toc-auto",
   "version": "1.0.0",
-  "description": "",
+  "description": "gitbook插件，根据目录文件SUMMARY.md中要编译的md文件，按创建时间倒序，在首页生成相应的目录",
   "main": "index.js",
   "engines": {
     "gitbook": ">1.x.x"
@@ -11,6 +11,20 @@
     "moment": "^2.10.6"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Tmiracle",
+  "license": "ISC",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T-miracle/gitbook-plugin-toc-auto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/T-miracle/gitbook-plugin-toc-auto/issues"
+  },
+  "homepage": "https://github.com/T-miracle/gitbook-plugin-toc-auto#readme"
 }

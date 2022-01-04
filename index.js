@@ -60,7 +60,7 @@ module.exports = {
 				_indexPage += `
 				<div class="article-box">
 					<div class="article-title"><a href="${indexPage[i].url}">${indexPage[i].title}</a></div>
-					<div class="article-createtime">${indexPage[i].ctime}</div>
+					<div class="article-createtime">${indexPage[i].birthtime}</div>
 					<div class="article-content">${indexPage[i].content}</div>
 				</div>`;
 			}
