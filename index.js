@@ -4,7 +4,7 @@ const moment = require('moment');
 var Entities = require('html-entities').AllHtmlEntities;
 var Html = new Entities();
 
-var indexPage = new Array();
+var tocPage = new Array();
 
 module.exports = {
 	book: {
@@ -19,7 +19,8 @@ module.exports = {
 			return footer(this, page, mtime, birthtime);
 		},
 		page: function (page) {
-			if (page.path !== 'README.md') {
+			let xpath = this.config.get('pluginsConfig')["toc-auto"].xpath;
+			if (page.path !== 'README.md' && page.path !== xpath + '.md') {
 				let text;
 				text = page.content;
 				text = Html.decode(text);
@@ -46,28 +47,29 @@ module.exports = {
 					birthtime: moment(new Date(stat.birthtime + 8 * 60 * 60 * 1000)).format('YYYY-MM-DD HH:mm:ss'),
 					url: this.output.toURL(page.path),
 				};
-				indexPage.push(doc);
-				indexPage = indexPage.sort((x, y) => {
+				tocPage.push(doc);
+				tocPage = tocPage.sort((x, y) => {
 					return x.birthtime < y.birthtime;
 				});
-				if (indexPage.length > 10) indexPage.pop();
+				if (tocPage.length > 10) tocPage.pop();
 			}
 			return page;
 		},
 		finish: function () {
-			let _indexPage = ``;
-			for (let i = 0; i < indexPage.length; i++) {
-				_indexPage += `
+			let _tocPage = ``;
+			for (let i = 0; i < tocPage.length; i++) {
+				_tocPage += `
 				<div class="article-box">
-					<div class="article-title"><a href="${indexPage[i].url}">${indexPage[i].title}</a></div>
-					<div class="article-createtime">${indexPage[i].birthtime}</div>
-					<div class="article-content">${indexPage[i].content}</div>
+					<div class="article-title"><a href="${tocPage[i].url}">${tocPage[i].title}</a></div>
+					<div class="article-createtime">${tocPage[i].birthtime}</div>
+					<div class="article-content">${tocPage[i].content}</div>
 				</div>`;
 			}
-			indexPage = [];
-			let indexHtml = fs.readFileSync(this.output.resolve('index.html'), 'utf8');
-			indexHtml = indexHtml.replace('<p>${text}</p>', _indexPage);
-			return this.output.writeFile('index.html', indexHtml);
+			tocPage = [];
+			let xpath = this.config.get('pluginsConfig')["toc-auto"].xpath;
+			let tocHtml = fs.readFileSync(this.output.resolve(xpath + '.html'), 'utf8');
+			tocHtml = tocHtml.replace('<p>${toc-auto}</p>', _tocPage);
+			return this.output.writeFile(xpath + '.html', tocHtml);
 		},
 	},
 	filters: {
