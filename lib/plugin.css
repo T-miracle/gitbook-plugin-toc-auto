@@ -1,0 +1,60 @@
+.page-footer {
+  margin-top: 50px;
+  border-top: 1px solid #ccc;
+  overflow: hidden;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #808080;
+}
+
+.page-footer .page-footer-copyright {
+  display: inline-block;
+}
+
+.page-footer .page-footer a {
+  color: #808080 !important;
+  text-decoration: underline !important;
+}
+
+.page-footer .page-footer-footer-update {
+  float: right;
+  display: block;
+}
+
+.markdown-section > :last-child {
+  margin-bottom: 50px !important;
+}
+
+.article-box {
+  padding: 10px 20px;
+  border-bottom: 2px solid #dbdbdb;
+}
+
+.article-box .article-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.article-box .article-title a {
+  font-size: 1.6em;
+  color: #111111;
+  text-decoration: unset;
+}
+
+.article-box .article-title a:hover {
+  text-decoration: underline;
+}
+
+.article-box .article-createtime {
+  color: #b3b3b3;
+  font-size: 0.6em;
+}
+
+.article-box .article-content {
+  color: #7a7a7a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=plugin.css.map */

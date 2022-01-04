@@ -1,0 +1,16 @@
+{
+  "name": "gitbook-plugin-toc-auto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "gitbook": ">1.x.x"
+  },
+  "dependencies": {
+    "html-entities": "1.2.0",
+    "moment": "^2.10.6"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
