@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-toc-auto",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "gitbook插件，根据目录文件SUMMARY.md中要编译的md文件，按创建时间倒序，在首页生成相应的目录",
   "main": "index.js",
   "engines": {
