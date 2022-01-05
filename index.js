@@ -20,6 +20,7 @@ module.exports = {
 		},
 		page: function (page) {
 			let xpath = this.config.get('pluginsConfig')["toc-auto"].xpath;
+			let maxDisplay = this.config.get('pluginsConfig')["toc-auto"].maxDisplay || 20;
 			if (page.path !== 'README.md' && page.path !== xpath + '.md') {
 				let text;
 				text = page.content;
@@ -51,7 +52,7 @@ module.exports = {
 				tocPage = tocPage.sort((x, y) => {
 					return x.birthtime < y.birthtime;
 				});
-				if (tocPage.length > 10) tocPage.pop();
+				if (tocPage.length > maxDisplay) tocPage.pop();
 			}
 			return page;
 		},
