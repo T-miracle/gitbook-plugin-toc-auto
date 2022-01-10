@@ -53,7 +53,7 @@ module.exports = {
 					};
 					tocPage.push(doc);
 					tocPage = tocPage.sort((x, y) => {
-						return x.birthtime < y.birthtime;
+						return new Date(x.birthtime) < new Date(y.birthtime) ? 1 : -1;
 					});
 					if (tocPage.length > maxDisplay) tocPage.pop();
 				}
