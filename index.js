@@ -22,6 +22,7 @@ module.exports = {
 			let config = this.config.get('pluginsConfig')["toc-auto"];
 			let xpath = config.xpath;
 			let ignore = config.ignore;
+			let sort = config.sort || 1;
 			let maxDisplay = config.maxDisplay || 10;
 			if (!ignore.includes(page.path)) { // 排除忽略文件
 				if (page.path !== 'README.md' && page.path !== xpath + '.md') {
@@ -53,7 +54,10 @@ module.exports = {
 					};
 					tocPage.push(doc);
 					tocPage = tocPage.sort((x, y) => {
-						return new Date(x.birthtime) < new Date(y.birthtime) ? 1 : -1;
+						if (sort === 1)
+							return new Date(x.birthtime) < new Date(y.birthtime) ? 1 : -1;
+						if (sort === 2)
+							return new Date(x.mtime) < new Date(y.mtime) ? 1 : -1;
 					});
 					if (tocPage.length > maxDisplay) tocPage.pop();
 				}
